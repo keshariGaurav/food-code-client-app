@@ -1,6 +1,6 @@
+import image from '../../food.png';
 import Button from '../AddButton';
 import MenuItem from '../MenuItem';
-import image from '../../food.png';
 
 const MenuItemWrapper = () => {
   return (
@@ -9,7 +9,7 @@ const MenuItemWrapper = () => {
         <div className="flex flex-row">
           <div className="mr-10 flex flex-col items-center justify-center">
             <img src={image} alt="Food" className="rounded-md" />
-            <Button children="ADD" className="-mt-2" />
+            <Button className="-mt-2">ADD</Button>
             <p className="p-1 text-xs text-gray-500">Customisable</p>
           </div>
           <MenuItem />
