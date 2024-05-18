@@ -1,3 +1,14 @@
+import SearchBar from './Components/InputBox/SearchBar';
+import MenuItemWrapper from './Components/MenuItemWrapper';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 export default function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world !</h1>;
+  return (
+    <>
+      <SearchBar />
+      <MenuItemWrapper />
+      <MenuItemWrapper />
+      <MenuItemWrapper />
+    </>
+  );
 }
