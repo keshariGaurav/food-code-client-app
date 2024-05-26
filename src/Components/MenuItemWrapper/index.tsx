@@ -1,8 +1,13 @@
 import image from '../../food.png';
+import { MenuItems } from '../../types';
 import Button from '../AddButton';
 import MenuItem from '../MenuItem';
 
-const MenuItemWrapper = () => {
+interface MenuItemWrapperProps {
+  menu: MenuItems;
+}
+
+const MenuItemWrapper = ({ menu }: MenuItemWrapperProps) => {
   return (
     <div className="mb-2 mt-2 flex items-center justify-center">
       <div className="flex max-w-sm flex-col rounded-xl border-2 border-gray-200 p-4">
@@ -12,7 +17,7 @@ const MenuItemWrapper = () => {
             <Button className="-mt-2">ADD</Button>
             <p className="p-1 text-xs text-gray-500">Customisable</p>
           </div>
-          <MenuItem />
+          <MenuItem menu={menu} />
         </div>
       </div>
     </div>
