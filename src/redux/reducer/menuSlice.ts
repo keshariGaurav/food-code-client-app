@@ -1,6 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { RootState } from '../store';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+
+import { RootState } from '../store';
 
 type MenuState = {
   id: string | any;

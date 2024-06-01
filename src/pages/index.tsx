@@ -1,11 +1,12 @@
-import React, { useState, useEffect, ReactNode } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import axios from 'axios';
+import React, { ReactNode, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+
+import AlertBar from '../Components/AlertBar/AlertBar';
+import { AppDispatch, RootState } from '../redux/store';
 import LoginPage from './login/LoginPage';
 import VerifyLogin from './login/VerifyLogin';
-import AlertBar from '../Components/AlertBar/AlertBar';
-import { RootState, AppDispatch } from '../redux/store';
-import { useDispatch, useSelector } from 'react-redux';
 
 interface PageLayoutProps {
   children: ReactNode;

@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { SubmitHandler, useForm } from 'react-hook-form';
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState, AppDispatch } from '../../../redux/store';
-import { setDiner, updateDinerEmail } from '../../../redux/reducer/dinerSlice';
+import { useNavigate, useParams } from 'react-router-dom';
+
 import { setAlert } from '../../../redux/reducer/alertSlice';
+import { setDiner, updateDinerEmail } from '../../../redux/reducer/dinerSlice';
+import { AppDispatch, RootState } from '../../../redux/store';
 
 type FormFields = {
   email: string;
