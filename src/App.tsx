@@ -1,13 +1,16 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-import SearchBar from './Components/InputBox/SearchBar';
-import MenuItemsWrapper from './Components/MenuItemsWrapper';
-import MenuItemWrapper from './Components/MenuItemWrapper';
+
+import axios from 'axios';
+
+import Pages from '../src/pages';
+
 
 export default function App() {
+  axios.defaults.withCredentials = true;
   return (
     <>
-      <MenuItemsWrapper />
+      <Pages />
     </>
   );
 }
