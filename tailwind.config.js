@@ -26,7 +26,7 @@ export default {
   plugins: [
     plugin(function ({ addBase }) {
       addBase({
-        html: { fontSize: '10px' },
+        html: { fontSize: '16px' },
       });
     }),
   ],
