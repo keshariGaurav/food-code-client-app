@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 import { MenuItemByCategory } from '../../types';
+import SearchBar from '../InputBox/SearchBar';
 import MenuByCategory from '../MenuByCategory';
 
 const MenuItemsWrapper = () => {
@@ -30,8 +31,9 @@ const MenuItemsWrapper = () => {
 
   return (
     <div>
+      <SearchBar />
       {menuItems.map((menuItem: MenuItemByCategory) => (
-        <div key={menuItem.id}>
+        <div key={menuItem.id} className="mt-16">
           <MenuByCategory menuItem={menuItem} />
         </div>
       ))}
