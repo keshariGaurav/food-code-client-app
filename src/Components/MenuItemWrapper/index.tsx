@@ -20,7 +20,7 @@ const MenuItemWrapper = ({ menu }: MenuItemWrapperProps) => {
   return (
     <>
       <div className="mb-2 mt-2 flex items-center justify-center">
-        <div className="flex max-w-sm flex-col rounded-xl border-2 border-gray-200 p-4">
+        <div className="flex w-full flex-col rounded-xl border-2 border-gray-200 p-4 sm:w-1/2 lg:w-1/4">
           <div className="flex flex-row">
             <div className="mr-10 flex flex-col items-center justify-center">
               <img src={image} alt="Food" className="rounded-md" />

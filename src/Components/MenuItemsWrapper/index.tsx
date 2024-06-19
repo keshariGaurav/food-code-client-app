@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 import { MenuItemByCategory } from '../../types';
+import SearchBar from '../InputBox/SearchBar';
 import MenuByCategory from '../MenuByCategory';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../redux/store';
@@ -35,6 +36,7 @@ const MenuItemsWrapper = () => {
   return (
     <>
       <div>
+        <SearchBar />
         {menuItems.map((menuItem: MenuItemByCategory) => (
           <div
             key={menuItem.id}

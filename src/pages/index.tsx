@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 import AlertBar from '../Components/AlertBar/AlertBar';
+import MenuItemsWrapper from '../Components/MenuItemsWrapper';
 import { AppDispatch, RootState } from '../redux/store';
 import LoginPage from './login/LoginPage';
 import VerifyLogin from './login/VerifyLogin';
@@ -21,6 +22,7 @@ const Pages = () => {
           <Route path="/" element={<MenuPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/verify-login" element={<VerifyLogin />} />
+          <Route path="/" element={<MenuItemsWrapper />} />
         </Routes>
       </PageLayout>
     </BrowserRouter>
