@@ -8,6 +8,7 @@ import MenuItemsWrapper from '../Components/MenuItemsWrapper';
 import { AppDispatch, RootState } from '../redux/store';
 import LoginPage from './login/LoginPage';
 import VerifyLogin from './login/VerifyLogin';
+import MenuPage from './menus/MenuPage';
 
 interface PageLayoutProps {
   children: ReactNode;
@@ -18,6 +19,7 @@ const Pages = () => {
     <BrowserRouter>
       <PageLayout>
         <Routes>
+          <Route path="/" element={<MenuPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/verify-login" element={<VerifyLogin />} />
           <Route path="/" element={<MenuItemsWrapper />} />
