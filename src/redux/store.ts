@@ -3,12 +3,16 @@ import { configureStore } from '@reduxjs/toolkit';
 import { alertSlice } from './reducer/alertSlice';
 import { dinerSlice } from './reducer/dinerSlice';
 import { menuSlice } from './reducer/menuSlice';
+import { menuPopupSlice } from './reducer/menuPopupSlice';
+import { cartSlice } from './reducer/cartSlice';
 
 export const store = configureStore({
   reducer: {
     menu: menuSlice.reducer,
     diner: dinerSlice.reducer,
     alert: alertSlice.reducer,
+    menuPopup: menuPopupSlice.reducer,
+    cart: cartSlice.reducer,
   },
 });
 

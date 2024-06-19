@@ -16,7 +16,7 @@
 }
 .custom-checkbox span:after {
   content: '';
-  @apply absolute left-1.5 top-0.5 hidden h-3 w-2 rotate-45 transform border-b-2 border-r-2 border-solid border-white;
+  @apply absolute left-1.5 top-1.5 hidden h-3 w-2 rotate-45 transform border-b-2 border-r-2 border-solid border-white;
 }
 .custom-checkbox input[type='checkbox']:checked + span:after {
   @apply block;
@@ -39,7 +39,7 @@
 }
 .custom-radio span:after {
   content: '';
-  @apply absolute left-1/2 top-1/2 hidden h-3 w-3 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-white;
+  @apply absolute left-1/2 top-1/2 hidden h-3 w-3 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-red-500;
 }
 .custom-radio input[type='radio']:checked + span:after {
   @apply block;

@@ -1,26 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { AddOnItemDetail } from '../../types';
+import RadioListComponent from '../CustomRadioBox';
 
-const SingleSelector = () => {
+interface SingleSelectorProps {
+  data: AddOnItemDetail[];
+}
+
+const SingleSelector = ({ data }: SingleSelectorProps) => {
   return (
     <div>
-      <h3 className="text-lg font-bold">Add on Name</h3>
       <p className="mb-2 mt-2 text-base">Select up to 1 option</p>
-      <div className="p-2">
-        <div className="flex justify-between">
-          <div className="flex space-x-3.5">
-            <img src="../../../images/veg.png" />
-            <h3>Egg</h3>
+      {data.map((item) => {
+        return (
+          <div className="p-2">
+            <div className="flex justify-between">
+              <div className="flex space-x-3.5">
+                <img src="../../../images/veg.png" />
+                <h3>{item.name}</h3>
+              </div>
+              <div className="flex space-x-3.5">
+                <p>Rs. {item.price}</p>
+                <RadioListComponent id={item._id} name={item.name} handler={() => {}} />
+              </div>
+            </div>
           </div>
-          <div className="flex space-x-3.5">
-            <p>Rs. 45</p>
-            <label className="custom-radio">
-              <input type="radio" />
-              <span></span>
-            </label>
-          </div>
-        </div>
-      </div>
+        );
+      })}
     </div>
   );
 };

@@ -11,7 +11,6 @@ const tag: Record<TagKeys, string> = {
   best_seller: 'Best Seller',
 };
 const MenuItem = ({ menu }: MenuItemWrapperProps) => {
-  console.log(menu);
   const displayTag = menu.tag ? tag[menu.tag as TagKeys] : tag.must_try;
   return (
     <div className="ml-10 flex w-1/2 flex-col items-start  justify-center">

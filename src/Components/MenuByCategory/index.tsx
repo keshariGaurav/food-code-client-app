@@ -10,7 +10,6 @@ interface MenuByCategoryProps {
 }
 
 const MenuByCategory = ({ menuItem }: MenuByCategoryProps) => {
-  console.log(menuItem.menus);
 
   return (
     <>
