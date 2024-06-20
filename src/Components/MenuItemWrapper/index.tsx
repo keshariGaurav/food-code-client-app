@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import image from '../../food.png';
-import { MenuItems } from '../../types';
-import Button from '../AddButton';
-import MenuItem from '../MenuItem';
+import { MenuItems } from '@/types';
+import Button from '@/Components/buttons/AddButton';
+import MenuItem from '@/Components/MenuItem';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../redux/store';
-import { setPopup } from '../../redux/reducer/menuPopupSlice';
+import { AppDispatch, RootState } from '@/redux/store';
+import { setPopup } from '@/redux/reducer/menuPopupSlice';
 
 interface MenuItemWrapperProps {
   menu: MenuItems;

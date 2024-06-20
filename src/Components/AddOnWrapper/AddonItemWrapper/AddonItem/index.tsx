@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-import CustomCheckbox from '@/Components/CustomCheckbox';
-import CustomRadioBox from '@/Components/CustomRadioBox';
+import CustomCheckbox from '@/Components/InputBox/CustomCheckbox';
+import CustomRadioBox from '@/Components/InputBox/CustomRadioBox';
 import { AddOnItemDetail, AddOnItem } from '@/types.d';
 
 interface AddonItemProps {

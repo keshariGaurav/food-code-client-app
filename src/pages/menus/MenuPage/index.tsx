@@ -1,11 +1,9 @@
 import React from 'react';
 
-import MenuItemsWrapper from '@/Components/MenuItemsWrapper';
+import AllMenusWrapper from '@/Components/AllMenusWrapper';
 
-const index = () => {
-  return <MenuItemsWrapper />;
+const MenuPage = () => {
+  return <AllMenusWrapper />;
 };
 
-index.propTypes = {};
-
-export default index;
+export default MenuPage;
