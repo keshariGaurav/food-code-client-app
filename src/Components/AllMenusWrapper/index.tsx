@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-import { MenuItemByCategory } from '../../types';
-import SearchBar from '../InputBox/SearchBar';
-import MenuByCategory from '../MenuByCategory';
+import { MenuItemByCategory } from '@/types';
+import SearchBar from '@/Components/InputBox/SearchBar';
+import MenuByCategory from '@/Components/MenuByCategory';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../redux/store';
-import MenuItemDescription from '../MenuItemDescription';
+import { AppDispatch, RootState } from '@/redux/store';
+import MenuItemDescription from '@/Components/MenuItemDescription';
 
-const MenuItemsWrapper = () => {
+const AllMenusWrapper = () => {
   const [menuItems, setMenuItems] = useState<MenuItemByCategory[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -53,4 +53,4 @@ const MenuItemsWrapper = () => {
   );
 };
 
-export default MenuItemsWrapper;
+export default AllMenusWrapper;

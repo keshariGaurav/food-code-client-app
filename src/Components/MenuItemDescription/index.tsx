@@ -1,20 +1,17 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import AddButton from '../AddButton';
-import StarRating from '../StarRating';
+import AddButton from '@/Components/buttons/AddButton';
+import StarRating from '@/Components/StarRating';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../redux/store';
-import AddOnWrapper from '../AddOnWrapper';
-import NumberInput from '../NumberInput';
-import { updateItemsSelection } from '../../redux/reducer/menuPopupSlice';
-import { addNewItem } from '../../redux/reducer/cartSlice';
+import { AppDispatch, RootState } from '@/redux/store';
+import AddOnWrapper from '@/Components/AddOnWrapper';
+import NumberInput from '@/Components/InputBox/NumberInput';
+import { updateItemsSelection } from '@/redux/reducer/menuPopupSlice';
+import { addNewItem } from '@/redux/reducer/cartSlice';
 import { v4 as uuidv4 } from 'uuid';
 
 const MenuItemDescription = () => {
   const dispatch: AppDispatch = useDispatch();
   const popupMenuState = useSelector((state: RootState) => state.menuPopup);
-  const cartState = useSelector((state: RootState) => state.cart);
-  console.log('cart', cartState);
   const description = popupMenuState?.data?.description;
   const name = popupMenuState?.data?.name;
   const price = popupMenuState?.data?.price;
@@ -112,7 +109,5 @@ const MenuItemDescription = () => {
     </div>
   );
 };
-
-MenuItemDescription.propTypes = {};
 
 export default MenuItemDescription;

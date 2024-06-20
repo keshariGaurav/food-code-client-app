@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 import AlertBar from '@/Components/AlertBar/AlertBar';
-import MenuItemsWrapper from '@/Components/MenuItemsWrapper';
+import MenuItemsWrapper from '@/Components/AllMenusWrapper';
 import { AppDispatch, RootState } from '@/redux/store';
 import LoginPage from '@/pages/login/LoginPage';
 import VerifyLogin from '@/pages/login/VerifyLogin';
