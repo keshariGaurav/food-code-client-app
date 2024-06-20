@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import VerifyLoginForm from '../../Components/forms/VerifyLoginForm';
+import VerifyLoginForm from '@/Components/forms/VerifyLoginForm';
 
 const VerifyLogin = () => {
   return (

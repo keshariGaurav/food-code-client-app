@@ -1,6 +1,6 @@
 import React from 'react';
-import { AddOnItem } from '../../types';
-import AddonItemWrapper from './AddonItemWrapper';
+import { AddOnItem } from '@/types';
+import AddonItemWrapper from '@/Components/AddOnWrapper/AddonItemWrapper';
 interface AddOnWrapperProps {
   data: AddOnItem;
 }
@@ -9,6 +9,7 @@ const AddOnWrapper = ({ data }: AddOnWrapperProps) => {
   const multiSelect = data.multiSelect;
   const required = data.required;
   const items = data.items ?? [];
+
   return (
     <div className="mt-4 text-xl">
       <div className="text-xl font-medium">{name}</div>

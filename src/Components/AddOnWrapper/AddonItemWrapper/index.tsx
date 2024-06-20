@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { AddOnItemDetail } from '../../../types';
-import AddonItem from './AddonItem';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../../redux/store';
+
+import { AddOnItemDetail } from '@/types';
+import AddonItem from '@/Components/AddOnWrapper/AddonItemWrapper/AddonItem';
+import { AppDispatch, RootState } from '@/redux/store';
 import {
   updateItemsSelection,
   updateSelectedItems,
   updateSelectedAmount,
-} from '../../../redux/reducer/menuPopupSlice';
+} from '@/redux/reducer/menuPopupSlice';
 
 interface AddonItemWrapperProps {
   data: AddOnItemDetail[];

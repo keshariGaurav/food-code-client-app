@@ -3,12 +3,12 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
-import AlertBar from '../Components/AlertBar/AlertBar';
-import MenuItemsWrapper from '../Components/MenuItemsWrapper';
-import { AppDispatch, RootState } from '../redux/store';
-import LoginPage from './login/LoginPage';
-import VerifyLogin from './login/VerifyLogin';
-import MenuPage from './menus/MenuPage';
+import AlertBar from '@/Components/AlertBar/AlertBar';
+import MenuItemsWrapper from '@/Components/MenuItemsWrapper';
+import { AppDispatch, RootState } from '@/redux/store';
+import LoginPage from '@/pages/login/LoginPage';
+import VerifyLogin from '@/pages/login/VerifyLogin';
+import MenuPage from '@/pages/menus/MenuPage';
 
 interface PageLayoutProps {
   children: ReactNode;

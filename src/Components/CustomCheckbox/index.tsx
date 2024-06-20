@@ -6,6 +6,7 @@ interface CustomCheckboxProps {
   name: string;
   checked: boolean;
 }
+
 const CustomCheckbox = ({ handler, id, name, checked }: CustomCheckboxProps) => {
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     handler(event);

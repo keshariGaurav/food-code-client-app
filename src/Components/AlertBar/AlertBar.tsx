@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setAlert } from '../../redux/reducer/alertSlice';
-import { AppDispatch, RootState } from '../../redux/store';
+import { setAlert } from '@/redux/reducer/alertSlice';
+import { AppDispatch, RootState } from '@/redux/store';
 
 const Alert = () => {
   const alert = useSelector((state: RootState) => state.alert);

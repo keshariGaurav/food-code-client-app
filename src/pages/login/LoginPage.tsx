@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import LoginForm from '../../Components/forms/LoginForm';
+import LoginForm from '@/Components/forms/LoginForm';
 
 const LoginPage = () => {
   return (

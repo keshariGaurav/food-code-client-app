@@ -1,6 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import MenuItemsWrapper from '../../../Components/MenuItemsWrapper';
+
+import MenuItemsWrapper from '@/Components/MenuItemsWrapper';
+
 const index = () => {
   return <MenuItemsWrapper />;
 };
