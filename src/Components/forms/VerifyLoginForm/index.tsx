@@ -1,12 +1,11 @@
 import axios from 'axios';
-import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { setAlert } from '../../../redux/reducer/alertSlice';
-import { AppDispatch, RootState } from '../../../redux/store';
+import { setAlert } from '@/redux/reducer/alertSlice';
+import { AppDispatch, RootState } from '@/redux/store';
 
 type FormFields = {
   otp: string;

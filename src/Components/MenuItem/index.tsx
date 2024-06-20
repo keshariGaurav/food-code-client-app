@@ -1,5 +1,5 @@
-import { MenuItems } from '../../types';
-import StarRating from '../StarRating';
+import { MenuItems } from '@/types';
+import StarRating from '@/Components/StarRating';
 interface MenuItemWrapperProps {
   menu: MenuItems;
 }

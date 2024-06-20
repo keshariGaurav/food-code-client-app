@@ -6,6 +6,7 @@ interface CustomRadioBoxProps {
   name: string;
   checked: boolean;
 }
+
 const CustomRadioBox = ({ handler, id, name, checked }: CustomRadioBoxProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     handler(event);

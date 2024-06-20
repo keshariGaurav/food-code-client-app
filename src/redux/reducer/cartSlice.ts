@@ -1,8 +1,6 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
-import { MenuItem, AddOnItem, AddOnItemDetail, MenuPopupState } from '../../types';
-
-import { RootState } from '../store';
+import { MenuItem, AddOnItem, AddOnItemDetail, MenuPopupState } from '@/types';
 
 type CartState = {
   items: { [key: string]: MenuPopupState };
@@ -42,5 +40,4 @@ export const cartSlice = createSlice({
   },
 });
 export const { addNewItem, updateItem, deleteItem } = cartSlice.actions;
-export const cartItems = (state: RootState) => state.cart.items;
 export default cartSlice.reducer;

@@ -1,16 +1,15 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import { MenuItemByCategory, MenuItems } from '../../types';
+import { MenuItemByCategory, MenuItems } from 'types';
 
-const MenuItemWrapper = lazy(() => import('../MenuItemWrapper'));
+const MenuItemWrapper = lazy(() => import('@/Components/MenuItemWrapper'));
 
 interface MenuByCategoryProps {
   menuItem: MenuItemByCategory;
 }
 
 const MenuByCategory = ({ menuItem }: MenuByCategoryProps) => {
-
   return (
     <>
       <div className="flex items-start justify-center">
