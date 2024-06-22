@@ -16,14 +16,14 @@ const MenuItem = ({ menu }: MenuItemWrapperProps) => {
     <div className="ml-10 flex w-1/2 flex-col items-start  justify-center">
       <div className="flex flex-row">
         <i className="fas fa-seedling text-custom-green-500" />
-        <p className="p-1 text-xs text-red-500">{displayTag}</p>
+        <p className="p-1 text-lg text-red-500">{displayTag}</p>
       </div>
-      <p className="text-wrap p-1 text-lg text-gray-900">{menu.name}</p>
-      <p className="p-2 text-xs text-gray-500">Rs. {menu.price}</p>
-      <div className="flex flex-row">
+      <p className="text-wrap p-1 text-2xl text-gray-900">{menu.name}</p>
+      <p className="p-2 text-xl text-gray-500">Rs. {menu.price}</p>
+      <div className="flex flex-row items-center">
         <StarRating rating={2.5} />
-        <p className=" -mt-1 ml-6 p-1 text-xs text-red-500">2.5</p>
-        <p className="-mt-1 ml-1 p-1 text-xs text-gray-500">(78)</p>
+        <p className=" text-md -mt-1 ml-6 p-1 text-red-500">2.5</p>
+        <p className="text-md -mt-1 ml-1 p-1 text-gray-500">(78)</p>
       </div>
     </div>
   );

@@ -30,21 +30,23 @@ const AllMenusWrapper = () => {
     fetchMenuItems();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div key="loading">Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
     <>
       <div>
-        <SearchBar />
-        {menuItems.map((menuItem: MenuItemByCategory) => (
+        <div className="mb-20">
+          <div className="fixed left-0 right-0 top-0 z-20 bg-white pt-2">
+            <SearchBar />
+          </div>
+        </div>
+        {menuItems.map((menuItem: MenuItemByCategory, index) => (
           <div
-            key={menuItem.id}
-            className={`${
-              isVisible ? 'z-index-1  overscroll-none bg-gray-100' : 'blue-none'
-            }`}
+            key={index}
+            className={`${isVisible ? 'z-index-1 overscroll-none' : 'blur-none'}`}
           >
-            <MenuByCategory menuItem={menuItem} />
+            <MenuByCategory menuItem={menuItem} key={menuItem.id} />
           </div>
         ))}
       </div>
