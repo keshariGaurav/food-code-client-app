@@ -7,15 +7,18 @@ export interface MenuItems {
   tag: string;
   categoryId: string;
   _id: string;
+  visible?: boolean;
 }
 export interface Category {
   id: ID;
   name: string;
+  visible?: boolean;
   descrption?: string;
 }
 export interface MenuItemByCategory {
   id: ID;
   category: Category;
+  visible?:boolean;
   menus: MenuItems[];
 }
 
@@ -44,6 +47,7 @@ export interface MenuItem {
   image: string;
   available: boolean;
   categoryId: string;
+  visible?: boolean;
   addOnItems: AddOnItem[];
   __v: number;
 }
