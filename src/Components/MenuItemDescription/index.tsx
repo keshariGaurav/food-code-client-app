@@ -91,8 +91,8 @@ const MenuItemDescription = () => {
           <h3 className="text-gray-500">{description}</h3>
         </div>
         <div>
-          {addOnItems?.map((addOns) => {
-            return <AddOnWrapper data={addOns} />;
+          {addOnItems?.map((addOns, idx) => {
+            return <AddOnWrapper data={addOns} key={idx} />;
           })}
         </div>
       </div>

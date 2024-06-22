@@ -15,8 +15,8 @@ const MenuByCategory = ({ menuItem }: MenuByCategoryProps) => {
       <div className="flex items-start justify-center">
         <p className="p-1 text-lg uppercase text-gray-500">{menuItem.category.name}</p>
       </div>
-      {menuItem.menus.map((menu) => (
-        <LazyMenuItemWrapper key={menu.id} menu={menu} />
+      {menuItem.menus.map((menu, idx) => (
+        <LazyMenuItemWrapper key={menu._id} menu={menu} />
       ))}
     </>
   );

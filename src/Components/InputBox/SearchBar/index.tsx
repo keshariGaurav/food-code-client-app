@@ -2,8 +2,8 @@ import React from 'react';
 
 const SearchBar = () => {
   return (
-    <div className="fixed left-1/2 top-0 flex w-full -translate-x-1/2 transform justify-center">
-      <div className="relative mb-2 mt-2 flex w-full items-center justify-center sm:w-1/2 lg:w-1/4">
+    <div className="flex w-full justify-center px-4">
+      <div className="relative mb-2 flex w-full items-center justify-center sm:w-1/2 lg:w-1/4">
         <input
           className="mb-3 block w-full appearance-none rounded-2xl border border-gray-300 bg-green-50 px-4 py-3 leading-tight text-gray-700 placeholder-gray-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-green-100"
           type="text"

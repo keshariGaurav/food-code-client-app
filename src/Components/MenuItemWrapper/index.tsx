@@ -19,7 +19,7 @@ const MenuItemWrapper = ({ menu }: MenuItemWrapperProps) => {
 
   return (
     <>
-      <div className="mb-2 mt-2 flex items-center justify-center">
+      <div className="mb-2 mt-2 flex items-center justify-center p-4">
         <div className="flex w-full flex-col rounded-xl border-2 border-gray-200 p-4 sm:w-1/2 lg:w-1/4">
           <div className="flex flex-row">
             <div className="mr-10 flex flex-col items-center justify-center">
@@ -45,7 +45,7 @@ const MenuItemWrapper = ({ menu }: MenuItemWrapperProps) => {
               >
                 ADD
               </Button>
-              <p className="p-1 text-xs text-gray-500">Customisable</p>
+              <p className="p-1 text-sm text-gray-500">Customisable</p>
             </div>
             <MenuItem menu={menu} />
           </div>
