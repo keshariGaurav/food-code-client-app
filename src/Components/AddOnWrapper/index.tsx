@@ -1,6 +1,7 @@
 import React from 'react';
-import { AddOnItem } from '@/types';
+
 import AddonItemWrapper from '@/Components/AddOnWrapper/AddonItemWrapper';
+import { AddOnItem } from '@/types';
 interface AddOnWrapperProps {
   data: AddOnItem;
 }

@@ -1,8 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { MenuItem, AddOnItem, AddOnItemDetail, MenuPopupState } from '@/types';
-
-
+import { AddOnItem, AddOnItemDetail, MenuItem, MenuPopupState } from '@/types';
 
 const initialState: MenuPopupState = {
   menuId: '',

@@ -1,6 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
-import { MenuItem, AddOnItem, AddOnItemDetail, MenuPopupState } from '@/types';
+
+import { AddOnItem, AddOnItemDetail, MenuItem, MenuPopupState } from '@/types';
 
 type CartState = {
   items: { [key: string]: MenuPopupState };

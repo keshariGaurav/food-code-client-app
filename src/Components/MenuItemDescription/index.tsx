@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
-import AddButton from '@/Components/buttons/AddButton';
-import StarRating from '@/Components/StarRating';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '@/redux/store';
-import AddOnWrapper from '@/Components/AddOnWrapper';
-import NumberInput from '@/Components/InputBox/NumberInput';
-import { updateItemsSelection } from '@/redux/reducer/menuPopupSlice';
-import { addNewItem } from '@/redux/reducer/cartSlice';
 import { v4 as uuidv4 } from 'uuid';
+
+import AddOnWrapper from '@/Components/AddOnWrapper';
+import AddButton from '@/Components/buttons/AddButton';
+import NumberInput from '@/Components/InputBox/NumberInput';
+import StarRating from '@/Components/StarRating';
+import { addNewItem } from '@/redux/reducer/cartSlice';
+import { updateItemsSelection } from '@/redux/reducer/menuPopupSlice';
+import { AppDispatch, RootState } from '@/redux/store';
 
 const MenuItemDescription = () => {
   const dispatch: AppDispatch = useDispatch();
