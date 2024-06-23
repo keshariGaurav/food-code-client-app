@@ -51,7 +51,6 @@
     "vite": "^4.4.0",
     "vite-tsconfig-paths": "^4.3.2"
   },
-  "pre-commit": "lint",
   "license": "MIT",
   "proxy": "http://localhost:3100"
 }
