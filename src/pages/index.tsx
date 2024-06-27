@@ -5,10 +5,10 @@ import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 import AlertBar from '@/Components/AlertBar/AlertBar';
 import MenuItemsWrapper from '@/Components/AllMenusWrapper';
-import { AppDispatch, RootState } from '@/redux/store';
 import LoginPage from '@/pages/login/LoginPage';
 import VerifyLogin from '@/pages/login/VerifyLogin';
 import MenuPage from '@/pages/menus/MenuPage';
+import { AppDispatch, RootState } from '@/redux/store';
 
 interface PageLayoutProps {
   children: ReactNode;

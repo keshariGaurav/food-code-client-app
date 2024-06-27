@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import { alertSlice } from '@/redux/reducer/alertSlice';
-import { dinerSlice } from '@/redux/reducer/dinerSlice';
-import { menuSlice } from '@/redux/reducer/menuSlice';
-import { menuPopupSlice } from '@/redux/reducer/menuPopupSlice';
 import { cartSlice } from '@/redux/reducer/cartSlice';
+import { dinerSlice } from '@/redux/reducer/dinerSlice';
+import { menuPopupSlice } from '@/redux/reducer/menuPopupSlice';
+import { menuSlice } from '@/redux/reducer/menuSlice';
 
 export const store = configureStore({
   reducer: {

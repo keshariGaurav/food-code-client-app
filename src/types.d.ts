@@ -18,7 +18,7 @@ export interface Category {
 export interface MenuItemByCategory {
   id: ID;
   category: Category;
-  visible?:boolean;
+  visible?: boolean;
   menus: MenuItems[];
 }
 

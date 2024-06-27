@@ -1,12 +1,13 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { createRef, useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { MenuItemByCategory } from '@/types';
+import CategoriesSlider from '@/Components/CategoriesSlider';
 import SearchBar from '@/Components/InputBox/SearchBar';
 import MenuByCategory from '@/Components/MenuByCategory';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '@/redux/store';
 import MenuItemDescription from '@/Components/MenuItemDescription';
+import { AppDispatch, RootState } from '@/redux/store';
+import { MenuItemByCategory } from '@/types';
 
 const AllMenusWrapper = () => {
   const [menuItems, setMenuItems] = useState<MenuItemByCategory[]>([]);
@@ -15,6 +16,7 @@ const AllMenusWrapper = () => {
   const [error, setError] = useState<string | null>(null);
   const popupMenuState = useSelector((state: RootState) => state.menuPopup);
   const isVisible = popupMenuState.visible;
+  const refs = useRef<{ [key: string]: React.RefObject<HTMLDivElement> }>({});
 
   function changeMenuItemsVisibility(
     searchTerm: string,
@@ -59,6 +61,11 @@ const AllMenusWrapper = () => {
         const response = await axios.get('http://localhost:3100/api/v1/menus/category');
         setMenuItems(response.data.data);
         setMofifiedMenuItems(response.data.data);
+        console.log(response.data.data);
+        response.data.data.forEach((item: MenuItemByCategory) => {
+          // console.log(item.category.name);
+          refs.current[item.category.name] = createRef();
+        });
       } catch (err: any) {
         setError(err.message);
       } finally {
@@ -73,6 +80,13 @@ const AllMenusWrapper = () => {
     handleSearch('');
   }, [menuItems]);
 
+  const scrollToCategory = (categoryName: string) => {
+    const categoryRef = refs.current[categoryName];
+    if (categoryRef && categoryRef.current) {
+      categoryRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   if (loading) return <div key="loading">Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
@@ -84,9 +98,11 @@ const AllMenusWrapper = () => {
             <SearchBar handler={handleSearch} />
           </div>
         </div>
+        <CategoriesSlider onCategoryClick={scrollToCategory} menuItems={menuItems} />
         {modifiedMenuItems.map((menuItem: MenuItemByCategory, index) => (
           <div
             key={index}
+            ref={refs.current[menuItem.category.name]}
             className={`${isVisible ? 'z-index-1 overscroll-none' : 'blur-none'}`}
           >
             {menuItem.visible && <MenuByCategory menuItem={menuItem} key={menuItem.id} />}

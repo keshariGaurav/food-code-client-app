@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import CustomCheckbox from '@/Components/InputBox/CustomCheckbox';
 import CustomRadioBox from '@/Components/InputBox/CustomRadioBox';
-import { AddOnItemDetail, AddOnItem } from '@/types.d';
+import { AddOnItem, AddOnItemDetail } from '@/types.d';
 
 interface AddonItemProps {
   item: AddOnItemDetail;
@@ -73,7 +73,7 @@ const AddonItem = ({
     <div className="p-2">
       <div className="flex justify-between">
         <div className="flex space-x-3.5">
-          <img src="../../../images/veg.png" />
+          <img src="../../../images/veg.png" alt={item.name} />
           <h3>{item.name}</h3>
         </div>
         <div className="flex space-x-3.5">

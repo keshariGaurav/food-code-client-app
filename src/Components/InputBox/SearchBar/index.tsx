@@ -1,4 +1,5 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
+
 import { debounce } from '@/utils/debounce';
 
 interface SearchBarProps {
