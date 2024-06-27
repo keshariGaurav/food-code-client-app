@@ -75,10 +75,10 @@ const MenuItemDescription = () => {
       </div>
       <div className="z-10 h-5/6  w-screen overflow-scroll p-3">
         <div className="flex justify-between">
-          <img src="../../../images/menuItem.png" />
+          <img src="../../../images/menuItem.png" alt="menu-img" />
         </div>
         <div className="mt-2 flex space-x-2">
-          <img src="../../../images/non-veg.png" />
+          <img src="../../../images/non-veg.png" alt="non-veg-sign" />
           <h3 className="font-bold text-red-500">Best Seller</h3>
         </div>
         <div className="mt-3 flex items-center justify-between">
