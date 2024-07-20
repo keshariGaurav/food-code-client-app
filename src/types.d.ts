@@ -56,6 +56,7 @@ type MenuPopupState = {
   menuId: string;
   categoryId: string;
   visible: boolean;
+  editMode:boolean;
   data: Partial<MenuItem>;
   selectedItems: {
     [key: string]: string[];
@@ -67,3 +68,7 @@ type MenuPopupState = {
   totalAmount: number;
   quantity: number;
 };
+
+interface CartState {
+  items: { [key: string]: MenuPopupState };
+}

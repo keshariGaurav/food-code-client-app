@@ -4,6 +4,7 @@ interface NumberInputProps {
   min?: number;
   max?: number;
   step?: number;
+  defaultValue?: number;
   handler: (param: number) => void;
 }
 
@@ -11,9 +12,10 @@ const NumberInput: React.FC<NumberInputProps> = ({
   min = 1,
   max = 10,
   step = 1,
+  defaultValue = 1,
   handler,
 }) => {
-  const [value, setValue] = useState<number>(min);
+  const [value, setValue] = useState<number>(defaultValue);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = Number(e.target.value);

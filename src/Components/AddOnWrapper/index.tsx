@@ -25,6 +25,4 @@ const AddOnWrapper = ({ data }: AddOnWrapperProps) => {
   );
 };
 
-AddOnWrapper.propTypes = {};
-
 export default AddOnWrapper;

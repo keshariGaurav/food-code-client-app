@@ -13,7 +13,7 @@ const CategoriesSlider = ({ onCategoryClick, menuItems }: CategoriesSliderProps)
   return (
     <div className="flex w-full justify-center px-4">
       <div
-        className="flex w-full space-x-4 overflow-x-auto p-4 px-4 sm:w-1/2 lg:w-1/4"
+        className="mt-32 flex w-full space-x-4 overflow-x-auto p-4 px-4 sm:w-1/2 lg:w-1/2"
         style={{
           WebkitOverflowScrolling: 'touch',
           scrollbarWidth: 'none',

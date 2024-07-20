@@ -43,6 +43,7 @@ const MenuItemDescription = () => {
     dispatch(
       updateItemsSelection({
         visible: false,
+        editMode: false,
       }),
     );
   };

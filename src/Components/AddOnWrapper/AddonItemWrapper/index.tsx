@@ -73,6 +73,9 @@ const AddonItemWrapper = ({
     if (required) {
       setSelectedIds([data[0]._id]);
     }
+    return () => {
+      setSelectedIds([]);
+    };
   }, []);
 
   return (

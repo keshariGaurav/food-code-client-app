@@ -8,14 +8,26 @@ import MenuByCategory from '@/Components/MenuByCategory';
 import MenuItemDescription from '@/Components/MenuItemDescription';
 import { AppDispatch, RootState } from '@/redux/store';
 import { MenuItemByCategory } from '@/types';
+import PopupMenu from '@/Components/PopupMenu';
+import Navbar from '@/Components/Navbar';
+import { useNavigate } from 'react-router-dom';
 
 const AllMenusWrapper = () => {
+  const navigate = useNavigate();
   const [menuItems, setMenuItems] = useState<MenuItemByCategory[]>([]);
   const [modifiedMenuItems, setMofifiedMenuItems] = useState<MenuItemByCategory[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const popupMenuState = useSelector((state: RootState) => state.menuPopup);
+  const cartState = useSelector((state: RootState) => state.cart);
+  const alreadySelected = Object.values(cartState.items).some(
+    (item) => item.menuId === popupMenuState.menuId,
+  );
   const isVisible = popupMenuState.visible;
+  const editMode = popupMenuState.editMode;
+  const visiblePopupMenu = alreadySelected && isVisible && !editMode;
+  const visibleMenuDescription = editMode || (!alreadySelected && isVisible);
+  const visibleGoToCart = !visiblePopupMenu && !visibleMenuDescription;
   const refs = useRef<{ [key: string]: React.RefObject<HTMLDivElement> }>({});
 
   function changeMenuItemsVisibility(
@@ -61,9 +73,7 @@ const AllMenusWrapper = () => {
         const response = await axios.get('http://localhost:3100/api/v1/menus/category');
         setMenuItems(response.data.data);
         setMofifiedMenuItems(response.data.data);
-        console.log(response.data.data);
         response.data.data.forEach((item: MenuItemByCategory) => {
-          // console.log(item.category.name);
           refs.current[item.category.name] = createRef();
         });
       } catch (err: any) {
@@ -93,8 +103,9 @@ const AllMenusWrapper = () => {
   return (
     <>
       <div>
-        <div className="mb-20">
-          <div className="fixed left-0 right-0 top-0 z-20 bg-white pt-2">
+        <div className="fixed left-0 right-0 top-0 z-20 mb-20 bg-white pt-2">
+          <Navbar />
+          <div className="">
             <SearchBar handler={handleSearch} />
           </div>
         </div>
@@ -109,7 +120,8 @@ const AllMenusWrapper = () => {
           </div>
         ))}
       </div>
-      {isVisible && <MenuItemDescription />}
+      {visiblePopupMenu && <PopupMenu />}
+      {visibleMenuDescription && <MenuItemDescription />}
     </>
   );
 };

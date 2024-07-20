@@ -31,7 +31,6 @@ const AddonItem = ({
     const itemIndex = items.findIndex((id) => id === newItem._id);
 
     let updatedIds: string[] = [];
-    console.log(itemIndex);
 
     if (itemIndex > -1) {
       // Item exists, remove it.
@@ -40,7 +39,6 @@ const AddonItem = ({
         const defaultIds = items[0];
         updatedIds = [...updatedIds, defaultIds];
       }
-      console.log(updatedIds);
       return updatedIds;
     }
     // Item does not exist, add it and increase the amount

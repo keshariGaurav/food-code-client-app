@@ -5,6 +5,7 @@ import { AddOnItem, AddOnItemDetail, MenuItem, MenuPopupState } from '@/types';
 const initialState: MenuPopupState = {
   menuId: '',
   visible: false,
+  editMode: false,
   categoryId: '',
   data: {},
   selectedItems: {},
