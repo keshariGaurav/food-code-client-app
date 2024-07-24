@@ -11,13 +11,12 @@ import { MenuItemByCategory } from '@/types';
 import PopupMenu from '@/Components/PopupMenu';
 import Navbar from '@/Components/Navbar';
 import { useNavigate } from 'react-router-dom';
+import { useGetMenusQuery } from '@/redux/reducer/apiSlice';
 
 const AllMenusWrapper = () => {
-  const navigate = useNavigate();
+  const { data: allMenus, isLoading, isSuccess } = useGetMenusQuery({});
   const [menuItems, setMenuItems] = useState<MenuItemByCategory[]>([]);
   const [modifiedMenuItems, setMofifiedMenuItems] = useState<MenuItemByCategory[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
   const popupMenuState = useSelector((state: RootState) => state.menuPopup);
   const cartState = useSelector((state: RootState) => state.cart);
   const alreadySelected = Object.values(cartState.items).some(
@@ -27,20 +26,20 @@ const AllMenusWrapper = () => {
   const editMode = popupMenuState.editMode;
   const visiblePopupMenu = alreadySelected && isVisible && !editMode;
   const visibleMenuDescription = editMode || (!alreadySelected && isVisible);
-  const visibleGoToCart = !visiblePopupMenu && !visibleMenuDescription;
   const refs = useRef<{ [key: string]: React.RefObject<HTMLDivElement> }>({});
 
   function changeMenuItemsVisibility(
     searchTerm: string,
-    data: MenuItemByCategory[],
+    data: MenuItemByCategory[] = [],
   ): void {
-    const copyData = [...data];
-    for (const category of copyData) {
-      category.visible = false;
-      for (const item of category.menus) {
-        item.visible = false;
-      }
-    }
+    let copyData = [...data];
+    copyData = copyData.map((category) => {
+      let updatedCategory = { ...category, visible: false };
+      updatedCategory.menus = updatedCategory.menus.map((item) => {
+        return { ...item, visible: false };
+      });
+      return updatedCategory;
+    });
 
     for (const category of copyData) {
       if (category.category.name.toLowerCase().includes(searchTerm.toLowerCase())) {
@@ -64,27 +63,18 @@ const AllMenusWrapper = () => {
   }
 
   const handleSearch = (text: string) => {
-    changeMenuItemsVisibility(text, menuItems);
+    changeMenuItemsVisibility(text, allMenus?.data);
   };
 
   useEffect(() => {
-    const fetchMenuItems = async () => {
-      try {
-        const response = await axios.get('http://localhost:3100/api/v1/menus/category');
-        setMenuItems(response.data.data);
-        setMofifiedMenuItems(response.data.data);
-        response.data.data.forEach((item: MenuItemByCategory) => {
-          refs.current[item.category.name] = createRef();
-        });
-      } catch (err: any) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchMenuItems();
-  }, []);
+    if (allMenus && !isLoading) {
+      const response = allMenus;
+      setMenuItems(response.data);
+      response.data.forEach((item: MenuItemByCategory) => {
+        refs.current[item.category.name] = createRef();
+      });
+    }
+  }, [allMenus, isLoading]);
 
   useEffect(() => {
     handleSearch('');
@@ -97,8 +87,7 @@ const AllMenusWrapper = () => {
     }
   };
 
-  if (loading) return <div key="loading">Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (isLoading) return <div key="loading">Loading...</div>;
 
   return (
     <>

@@ -5,6 +5,7 @@ import { cartSlice } from '@/redux/reducer/cartSlice';
 import { dinerSlice } from '@/redux/reducer/dinerSlice';
 import { menuPopupSlice } from '@/redux/reducer/menuPopupSlice';
 import { menuSlice } from '@/redux/reducer/menuSlice';
+import {apiSlice} from '@/redux/reducer/apiSlice';
 
 export const store = configureStore({
   reducer: {
@@ -13,7 +14,10 @@ export const store = configureStore({
     alert: alertSlice.reducer,
     menuPopup: menuPopupSlice.reducer,
     cart: cartSlice.reducer,
+    [apiSlice.reducerPath]: apiSlice.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(apiSlice.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
