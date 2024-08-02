@@ -34,7 +34,6 @@ const SelectedMenuItem = ({ menuItem, id }: SelectedMenuItemProps) => {
   const name = menuItem.data.name;
   const quantity = menuItem.quantity;
   const selectedItems = getAddOnItemNames(menuItem);
-  console.log(menuItem);
 
   return (
     <div className="mt-2">
