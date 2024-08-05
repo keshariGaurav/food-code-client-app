@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewItem } from '@/redux/reducer/cartSlice';
 import { AppDispatch, RootState } from '@/redux/store';
@@ -23,14 +24,19 @@ const CartPage = () => {
   }
 
   const totalAmount = calculateTotalAmount(cartState).toFixed(2);
-  const handleOrder = () => {
-    //Write Order logic.
+  const handleOrder = async () => {
+    try {
+      const response = await axios.post('http://localhost:3100/api/v1/order', cartState);
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error making POST request:', error);
+    }
   };
 
   if (Object.keys(allSelectedItems).length === 0) {
     return <EmptyCart />;
   }
-
+  console.log(cartState);
   return (
     <div className="p-4">
       <div className={`mt-6 p-4 ${cookingRequest ? 'blur-sm' : ''}`}>
