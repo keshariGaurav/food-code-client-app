@@ -1,17 +1,17 @@
 import axios from 'axios';
 import { createRef, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import CategoriesSlider from '@/Components/CategoriesSlider';
 import SearchBar from '@/Components/InputBox/SearchBar';
 import MenuByCategory from '@/Components/MenuByCategory';
 import MenuItemDescription from '@/Components/MenuItemDescription';
+import Navbar from '@/Components/Navbar';
+import PopupMenu from '@/Components/PopupMenu';
+import { useGetMenusQuery } from '@/redux/reducer/apiSlice';
 import { AppDispatch, RootState } from '@/redux/store';
 import { MenuItemByCategory } from '@/types';
-import PopupMenu from '@/Components/PopupMenu';
-import Navbar from '@/Components/Navbar';
-import { useNavigate } from 'react-router-dom';
-import { useGetMenusQuery } from '@/redux/reducer/apiSlice';
 
 const AllMenusWrapper = () => {
   const { data: allMenus, isLoading, isSuccess } = useGetMenusQuery({});
@@ -34,7 +34,7 @@ const AllMenusWrapper = () => {
   ): void {
     let copyData = [...data];
     copyData = copyData.map((category) => {
-      let updatedCategory = { ...category, visible: false };
+      const updatedCategory = { ...category, visible: false };
       updatedCategory.menus = updatedCategory.menus.map((item) => {
         return { ...item, visible: false };
       });

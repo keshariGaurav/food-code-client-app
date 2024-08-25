@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import SelectedMenuItem from '@/Components/SelectedMenuItem';
 import { addNewItem } from '@/redux/reducer/cartSlice';
 import { updateItemsSelection } from '@/redux/reducer/menuPopupSlice';
 import { AppDispatch, RootState } from '@/redux/store';
-import SelectedMenuItem from '@/Components/SelectedMenuItem';
 
 const PopupMenu = () => {
   const dispatch: AppDispatch = useDispatch();

@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { MenuPopupState, AddOnItem } from '@/types';
+import NumberInput from '@/Components/InputBox/NumberInput';
 import PopupMenu from '@/Components/PopupMenu';
 import { deleteItem, updateQuantity } from '@/redux/reducer/cartSlice';
 import { AppDispatch, RootState } from '@/redux/store';
-import NumberInput from '@/Components/InputBox/NumberInput';
+import { AddOnItem, MenuPopupState } from '@/types';
 
 interface SelectedMenuItemProps {
   menuItem: MenuPopupState;

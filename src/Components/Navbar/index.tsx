@@ -1,6 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import { AppDispatch, RootState } from '@/redux/store';
 
 const Navbar = () => {
@@ -21,7 +22,7 @@ const Navbar = () => {
             navigate('/cart');
           }}
         >
-          <span style={{ fontSize: '20px'}}>
+          <span style={{ fontSize: '20px' }}>
             <i className="fa-solid fa-cart-arrow-down"></i>
           </span>
         </button>

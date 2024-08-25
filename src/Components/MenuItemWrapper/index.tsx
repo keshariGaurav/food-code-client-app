@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '@/Components/buttons/AddButton';
 import MenuItem from '@/Components/MenuItem';
 import { setPopup } from '@/redux/reducer/menuPopupSlice';
 import { AppDispatch, RootState } from '@/redux/store';
-import { MenuItems, CartState } from '@/types';
+import { CartState, MenuItems } from '@/types';
 
 import image from '../../food.png';
 
