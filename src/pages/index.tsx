@@ -5,9 +5,9 @@ import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 import AlertBar from '@/Components/AlertBar/AlertBar';
 import MenuItemsWrapper from '@/Components/AllMenusWrapper';
+import CartPage from '@/pages/cart/CartPage';
 import LoginPage from '@/pages/login/LoginPage';
 import VerifyLogin from '@/pages/login/VerifyLogin';
-import CartPage from '@/pages/cart/CartPage';
 import MenuPage from '@/pages/menus/MenuPage';
 import { AppDispatch, RootState } from '@/redux/store';
 

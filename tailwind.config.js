@@ -47,7 +47,7 @@ export default {
               fontSize: '1.4rem',
             },
             p: {
-              fontSize:'1.4rem'
+              fontSize: '1.4rem',
             },
             ul: {
               listStyleType: 'disc',

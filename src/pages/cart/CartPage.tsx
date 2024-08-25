@@ -1,18 +1,29 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import Razorpay from 'razorpay';
+
+import CookingRequest from '@/Components/CookingRequest';
+import EmptyCart from '@/Components/EmptyCart';
+import SelectedMenuItem from '@/Components/SelectedMenuItem';
 import { addNewItem } from '@/redux/reducer/cartSlice';
 import { AppDispatch, RootState } from '@/redux/store';
-import SelectedMenuItem from '@/Components/SelectedMenuItem';
-import { useNavigate } from 'react-router-dom';
 import { CartState, MenuPopupState } from '@/types';
-import EmptyCart from '@/Components/EmptyCart';
-import CookingRequest from '@/Components/CookingRequest';
+import RenderRazorpay from '@/Components/RazorPay';
 
 const CartPage = () => {
   const navigate = useNavigate();
   const cartState = useSelector((state: RootState) => state.cart);
   const allSelectedItems = cartState.items;
   const [cookingRequest, setCookingRequest] = useState(false);
+  const [displayRazorpay, setDisplayRazorpay] = useState(false);
+  const [orderDetails, setOrderDetails] = useState({
+    orderId: '',
+    razorpayId: '',
+    currency: '',
+    amount: 0,
+  });
   function calculateTotalAmount(data: CartState): number {
     let totalAmount = 0;
     const items = data.items;
@@ -23,14 +34,31 @@ const CartPage = () => {
   }
 
   const totalAmount = calculateTotalAmount(cartState).toFixed(2);
-  const handleOrder = () => {
-    //Write Order logic.
+  const handleOrder = async () => {
+    try {
+      const response = await axios.post('http://localhost:3100/api/v1/order', cartState, {
+        withCredentials: true,
+      });
+
+      const result = response.data.data;
+      if (result && result._id) {
+        setOrderDetails({
+          razorpayId: result.razorpayOrderId,
+          orderId: result._id,
+          currency: 'INR',
+          amount: result.totalAmount,
+        });
+      }
+      setDisplayRazorpay(true);
+    } catch (error) {
+      console.error('Error creating order or initiating payment:', error);
+    }
   };
 
   if (Object.keys(allSelectedItems).length === 0) {
     return <EmptyCart />;
   }
-
+  console.log(cartState);
   return (
     <div className="p-4">
       <div className={`mt-6 p-4 ${cookingRequest ? 'blur-sm' : ''}`}>
@@ -94,6 +122,16 @@ const CartPage = () => {
         </div>
       </div>
       {cookingRequest && <CookingRequest setCookingRequest={setCookingRequest} />}
+      {displayRazorpay && (
+        <RenderRazorpay
+          razorpayId={orderDetails.razorpayId}
+          amount={orderDetails.amount}
+          currency={orderDetails.currency}
+          orderId={orderDetails.orderId}
+          keyId="***"
+          keySecret="***"
+        />
+      )}
     </div>
   );
 };

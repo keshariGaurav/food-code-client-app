@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import { alertSlice } from '@/redux/reducer/alertSlice';
+import { apiSlice } from '@/redux/reducer/apiSlice';
 import { cartSlice } from '@/redux/reducer/cartSlice';
 import { dinerSlice } from '@/redux/reducer/dinerSlice';
 import { menuPopupSlice } from '@/redux/reducer/menuPopupSlice';
 import { menuSlice } from '@/redux/reducer/menuSlice';
-import {apiSlice} from '@/redux/reducer/apiSlice';
 
 export const store = configureStore({
   reducer: {
