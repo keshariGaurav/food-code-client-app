@@ -128,8 +128,8 @@ const CartPage = () => {
           amount={orderDetails.amount}
           currency={orderDetails.currency}
           orderId={orderDetails.orderId}
-          keyId="rzp_test_u2PhIjEtE6fN40"
-          keySecret="za6H0mrrV96trmrXdyQAhbLf"
+          keyId="***"
+          keySecret="***"
         />
       )}
     </div>
