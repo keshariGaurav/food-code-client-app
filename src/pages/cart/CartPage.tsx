@@ -83,7 +83,7 @@ const CartPage = () => {
           {Object.keys(allSelectedItems).map((key) => {
             const item = allSelectedItems[key];
             return (
-              <div className="mb-2 rounded-lg border-2 border-gray-100 p-3">
+              <div key={key} className="mb-2 rounded-lg border-2 border-gray-100 p-3">
                 <SelectedMenuItem menuItem={item} id={key} />
               </div>
             );

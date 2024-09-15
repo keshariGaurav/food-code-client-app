@@ -9,6 +9,8 @@ import CartPage from '@/pages/cart/CartPage';
 import LoginPage from '@/pages/login/LoginPage';
 import VerifyLogin from '@/pages/login/VerifyLogin';
 import MenuPage from '@/pages/menus/MenuPage';
+import ProfilePage from '@/pages/profile/ProfilePage';
+import OrderPage from '@/pages/order/OrderPage';
 import { AppDispatch, RootState } from '@/redux/store';
 
 interface PageLayoutProps {
@@ -25,6 +27,8 @@ const Pages = () => {
           <Route path="/verify-login" element={<VerifyLogin />} />
           <Route path="/" element={<MenuItemsWrapper />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/order" element={<OrderPage />} />
         </Routes>
       </PageLayout>
     </BrowserRouter>
