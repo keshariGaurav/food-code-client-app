@@ -101,7 +101,7 @@ const RenderRazorpay = ({
       key: keyId,
       amount,
       currency,
-      name: 'TechnoSof Cafe',
+      name: 'Eazy Eats',
       order_id: razorpayId,
       handler: (response: {
         razorpay_payment_id: string | null;

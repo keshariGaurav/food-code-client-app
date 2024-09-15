@@ -12,6 +12,7 @@ import PopupMenu from '@/Components/PopupMenu';
 import { useGetMenusQuery } from '@/redux/reducer/apiSlice';
 import { AppDispatch, RootState } from '@/redux/store';
 import { MenuItemByCategory } from '@/types';
+import LoadingSpinner from '@/Components/LoadingSpinner';
 
 const AllMenusWrapper = () => {
   const { data: allMenus, isLoading, isSuccess } = useGetMenusQuery({});
@@ -87,7 +88,7 @@ const AllMenusWrapper = () => {
     }
   };
 
-  if (isLoading) return <div key="loading">Loading...</div>;
+  if (isLoading) return <LoadingSpinner />;
 
   return (
     <>
