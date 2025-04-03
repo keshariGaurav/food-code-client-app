@@ -1,6 +1,7 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { MenuItemByCategory, MenuItems } from 'types';
+//comment to proof
 
 const MenuItemWrapper = lazy(() => import('@/Components/MenuItemWrapper'));
 
